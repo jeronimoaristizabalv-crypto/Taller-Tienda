@@ -75,7 +75,7 @@ public class Tienda {
         return productosAdecuado;
     }
 
-    //2. obtener la lista de  codigos de los productos con un cantidad disponible mayor igual a 10 y menor que 50
+    // 2. obtener la lista de  codigos de los productos con un cantidad disponible mayor igual a 10 y menor que 50
 
     public ArrayList<String> obtenerCodigosProductosAgotados2(int limiteInferior, int limiteSuperior){
         ArrayList<String> resultado = new ArrayList<>();
@@ -88,7 +88,7 @@ public class Tienda {
     }
 
 
-    //3. Obtener la lista de clientes que hayan comprado el 07 de Octubre de 2026
+    // 3. Obtener la lista de clientes que hayan comprado el 07 de Octubre de 2026
 
     public ArrayList<Cliente> obtenerClientesCompras3(LocalDate fechaConsulta){
         ArrayList<Cliente> listaClientes = new ArrayList<>();
@@ -99,6 +99,21 @@ public class Tienda {
         }
         return listaClientes;
     }
+
+    // 4. Obtener las facturas que tenga un cleinte donde su nombre empiece por R
+
+    public ArrayList<Factura> obtenerFacturasClienteR(){
+        ArrayList<Factura> resultado = new ArrayList<>();
+
+        for (Factura factura : listaFacturas){
+            if(factura.tieneClienteConR()){
+                listaClientes.add(factura.cliente());
+            }
+        }
+        return resultado;
+    }
+
+    // 5. Obtener las
 
 
 
