@@ -58,11 +58,38 @@ public class Tienda {
     //CRUD Cliente, Producto, Factura,
 
 
-
     //Taller:
 
-    // 1.
-    
+    // 1. Obtener la liusta de los productos con una cantidad disponible mayor igual a 10
+
+    public List<Producto> obtenerMayoresDiez() {
+        List<Producto> productosAdecuado = new ArrayList<>();
+
+        for(Producto productosBuenos: listaProductos.values()) {
+
+            if (productosBuenos.getCantidadDisponible() >= 10) {
+                productosAdecuado.add(productosBuenos);
+            }
+        }
+        return productosAdecuado;
+    }
+
+    //2. obtener la lista de  codigos de los productos con un cantidad disponible mayor igual a 10 y menor que 50
+
+    public ArrayList<String> obtenerCodigosProductosAgotados2(int limiteInferior, int limiteSuperior){
+        ArrayList<String> resultado = new ArrayList<>();
+        for (Producto productoAux : listaProductos.values()) {
+            if (productoAux.getCantidadDisponible() >= 10 && productoAux.getCantidadDisponible() < 50) {
+                resultado.add(productoAux.getCodigo());
+            }
+        }
+        return resultado;
+    }
+
+
+    //3. Obtener la lista de clientes que hayan comprado el 07 de Octubre de 2026
+
+
 
 
 
