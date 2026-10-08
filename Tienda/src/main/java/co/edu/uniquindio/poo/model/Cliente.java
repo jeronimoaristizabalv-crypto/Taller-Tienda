@@ -1,5 +1,6 @@
 package co.edu.uniquindio.poo.model;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -46,6 +47,16 @@ public class Cliente {
 
     public List<Factura> getListaFacturas() {
         return Collections.unmodifiableList(listaFacturas);
+    }
+
+    public boolean isCompraEnFecha(LocalDate fechaConsulta) {
+        boolean comproFecha = false;
+        for (Factura factura : listaFacturas){
+            if(factura.fecha().isEqual(fechaConsulta)){
+                return true;
+            }
+        }
+        return comproFecha;
     }
 
 }
