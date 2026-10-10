@@ -31,6 +31,10 @@ public class DetalleFactura {
     }
 
     public float calcularSubtotal(){
-        return (float) ;
+        return (float) (cantidadComprada * getProducto().getValor());
+    }
+
+    public boolean esProducto(String codigoProducto) {
+        return producto.getCodigo().equals(codigoProducto);
     }
 }

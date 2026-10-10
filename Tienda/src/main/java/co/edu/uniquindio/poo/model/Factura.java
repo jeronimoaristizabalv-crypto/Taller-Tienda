@@ -13,6 +13,15 @@ public record Factura(String codigo, LocalDate fecha, double total, EstadoFactur
         return resultado;
     }
 
+    public boolean contieneProducto(String codigoProducto) {
+        for (DetalleFactura detalle : listaDetallesFactura) {
+            if (detalle.esProducto(codigoProducto)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 
 
 
