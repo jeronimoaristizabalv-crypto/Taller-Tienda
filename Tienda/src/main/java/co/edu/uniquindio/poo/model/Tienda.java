@@ -217,19 +217,29 @@ public class Tienda {
 
     // 5. Obtener las facturas donde se haya comprado un celular de marca iPhone 16 Pro Max
 
-    public ArrayList<Factura> obtrenerFacturaiPhone(String codigoProducto){
+    public ArrayList<Factura> obtrenerFacturasIphone(String codigoProducto){
         ArrayList<Factura> resultado= new ArrayList<>();
-        for(Factura factura: listaFacturas){
-            if(factura.contieneProducto(codigoProducto)){
-                resultado.add(factura);
+        for(Factura facturaAux: listaFacturas){
+            if(facturaAux.contieneProducto(codigoProducto)){
+                resultado.add(facturaAux);
             }
         }
         return resultado;
     }
 
-    // 6. Obtner las fucturas que tenga un cliente donde su nombre sea juan y haya comprado un celular de marca iPhone 16 Pro Max
+    // 6. Obtener las fucturas que tenga un cliente donde su nombre sea juan y haya comprado un celular de marca iPhone 16 Pro Max
 
-    // 7. impelemtar un metodo que reciba una categoría y retorne todos los productos registrados que pertenezcan a ella:
+    public ArrayList<Factura> obtenerFacturasJuanYIphone(String codigoProducto, String nombreCliente){
+        ArrayList<Factura> resultado= new ArrayList<>();
+        for(Factura facturaAux: listaFacturas){
+            if(facturaAux.contieneProducto(codigoProducto) && facturaAux.cliente().getNombreCompleto().equalsIgnoreCase(nombreCliente)){
+                resultado.add(facturaAux);
+            }
+        }
+        return resultado;
+    }
+
+    // 7. implementar un metodo que reciba una categoría y retorne todos los productos registrados que pertenezcan a ella:
 
     // 8. Implementar un metodo que reciba un precio minimo y un precio máximo, y retorne los productos cuyo precio se encuentre dentro de ese rango, incluyendo ambos límites.
 
