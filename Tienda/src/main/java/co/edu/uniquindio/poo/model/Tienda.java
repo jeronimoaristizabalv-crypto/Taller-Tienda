@@ -241,6 +241,16 @@ public class Tienda {
 
     // 7. implementar un metodo que reciba una categoría y retorne todos los productos registrados que pertenezcan a ella:
 
+    public List<Producto> obetnerProductosUnaCategoria(Categoria categoria){
+        LinkedList<Producto> resultado= new LinkedList<>();
+        for(Producto productoAux : hashMapListaProductos.values()){
+            if(productoAux.getCategoria() == categoria){
+                resultado.add(productoAux);
+            }
+        }
+        return resultado;
+    }
+
     // 8. Implementar un metodo que reciba un precio minimo y un precio máximo, y retorne los productos cuyo precio se encuentre dentro de ese rango, incluyendo ambos límites.
 
     // 9. implementar un metodo que retorne todos los productos registrados en la tienda, ordenados de menor a mayor según su precio

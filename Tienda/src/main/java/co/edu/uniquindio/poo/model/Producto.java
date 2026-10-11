@@ -40,6 +40,10 @@ public class Producto {
         return valor;
     }
 
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
     public Tienda getOwnedByTienda() {
         return ownedByTienda;
     }
