@@ -253,19 +253,39 @@ public class Tienda {
 
     // 8. Implementar un metodo que reciba un precio minimo y un precio máximo, y retorne los productos cuyo precio se encuentre dentro de ese rango, incluyendo ambos límites.
 
-    public ArrayList<Producto> obtenerProductosRangoPrecio(double limitInf, double limitSup){
-        ArrayList<Producto> resultado= new ArrayList<>();
-        for(Producto productoAux : hashMapListaProductos.values()){
-            if(productoAux.getValor()>= limitInf && productoAux.getValor()<= limitSup){{
+    public ArrayList<Producto> obtenerProductosRangoPrecio(double limitInf, double limitSup) {
+        ArrayList<Producto> resultado = new ArrayList<>();
+        for (Producto productoAux : hashMapListaProductos.values()) {
+            if (productoAux.getValor() >= limitInf && productoAux.getValor() <= limitSup) {
                 resultado.add(productoAux);
             }
         }
-            return resultado;
+        return resultado;
     }
 
-    // 9. implementar un metodo que retorne todos los productos registrados en la tienda, ordenados de menor a mayor según su precio
+    // 9. implementar un metodo que retorne todos los productos registrados en la tienda, ordenados de menor a mayor según su precio.
 
-    // 10. Implementar un metodo que identifique el producto con el precio más alto de la tienda. Si no existen productos registrados, el etodo debe retornar un Optional vacío.
+    public List<Producto> obtenerProductosTiendaPorPrecio(){
+        LinkedList<Producto> resultado= new LinkedList<>(hashMapListaProductos.values());
+        int s= resultado.size();
+        for(int i=0; i<s-1; i++){
+            boolean huboIntercambio= false;
+            for(int j=0; j<s-1-i; j++){
+                if(resultado.get(j).getValor()>resultado.get(j+1).getValor()){
+                    Producto productoAux= resultado.get(j);
+                    resultado.set(j, resultado.get(j+1));
+                    resultado.set(j+1, productoAux);
+                    huboIntercambio=true;
+
+                }
+            }
+            if(!huboIntercambio){
+                break;
+            }
+        }
+        return resultado;
+    }
+    // 10. Implementar un metodo que identifique el producto con el precio más alto de la tienda. Si no existen productos registrados, el metodo debe retornar un Optional vacío.
 
     // 11. Implementar un metodo que reciba el nombre de una ciudad y retorne todos los clietes que residan en ella. La búsqueda debe realizarse sin diferenciar entre mayúsculas y minúsculas.
 
