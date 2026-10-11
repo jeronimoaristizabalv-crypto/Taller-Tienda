@@ -253,6 +253,16 @@ public class Tienda {
 
     // 8. Implementar un metodo que reciba un precio minimo y un precio máximo, y retorne los productos cuyo precio se encuentre dentro de ese rango, incluyendo ambos límites.
 
+    public ArrayList<Producto> obtenerProductosRangoPrecio(double limitInf, double limitSup){
+        ArrayList<Producto> resultado= new ArrayList<>();
+        for(Producto productoAux : hashMapListaProductos.values()){
+            if(productoAux.getValor()>= limitInf && productoAux.getValor()<= limitSup){{
+                resultado.add(productoAux);
+            }
+        }
+            return resultado;
+    }
+
     // 9. implementar un metodo que retorne todos los productos registrados en la tienda, ordenados de menor a mayor según su precio
 
     // 10. Implementar un metodo que identifique el producto con el precio más alto de la tienda. Si no existen productos registrados, el etodo debe retornar un Optional vacío.
